@@ -12,22 +12,18 @@ export class TodoService{
     .map(res => res.json());
   }
 
-  addTodos(newTodo){
+  saveTodo(todo){
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('/api/v1/todos', JSON.stringify(newTodo), {headers: headers})
+    return this.http.post('/api/v1/todo', JSON.stringify(todo), {headers: headers})
     .map(res => res.json());
   }
 
-  deleteTodos(id){
-      return this.http.delete('/api/v1/todos'+id)
-      .map(res => res.json());
-  }
-
-  updateStatus(task){
+  
+  updateTodo(todo){
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.put('/api/v1/todos'+task._id, JSON.stringify(task), {headers: headers})
+    return this.http.put('/api/v1/todo' + todo._id, JSON.stringify(todo), {headers: headers})
     .map(res => res.json());
 
   }
